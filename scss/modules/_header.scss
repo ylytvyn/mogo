@@ -1,0 +1,140 @@
+.header {
+	background: url('../images/header-bg.jpg') no-repeat center bottom;
+	background-size: cover;
+	height: 100vh;
+	min-height: 700px;
+	color: #fff;
+
+	&::before {
+		@include pos($t: 0, $l: 0);
+		content: '';
+		opacity: .9;
+		width: 100%;
+		height: 100%;
+
+		background: $pink;
+		background: -moz-linear-gradient(top, $pink 0%, $yellow 100%);
+		background: -webkit-linear-gradient(top, $pink 0%, $yellow 100%);
+		background: linear-gradient(to bottom, $pink 0%, $yellow 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$pink}', endColorstr='#{$yellow}',GradientType=0 );
+	}
+
+	&__nav {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 85px;
+	}
+
+	&__wrap {
+		text-align: center;
+	}
+
+	&__subtitle {
+		font: 70px $kaushan;
+		margin-bottom: 30px;
+	}
+
+	&__title {
+		font: 700 150px/0.9 $font-title;
+		text-transform: uppercase;
+		padding-bottom: 50px;
+		margin-bottom: 50px;
+		position: relative;
+
+		&::before {
+			@include size(60px, 3px);
+			@include align($hor: true);
+			bottom: 0;
+			content: '';
+			background: currentColor;
+		}
+	}
+
+	&__learn-more {
+		padding: 15px 30px;
+		color: #fff;
+		border: 3px solid currentColor;
+		font: 700 14px $font-title;
+		text-transform: uppercase;
+		text-decoration: none;
+		transition: all .3s;
+
+		&:hover {
+			background: $pink;
+		}
+	}
+
+	&__links {
+		display: flex;
+		justify-content: space-between;
+		counter-reset: link;
+	}
+
+	&__link-item {
+		width: 23%;
+		font-family: $font-title;
+		padding: 20px 0;
+		border-top: 3px solid #fff;
+		position: relative;
+		opacity: .7;
+
+		&--active {
+			opacity: 1;
+
+			&::before {
+				@include size(25%, 3px);
+				@include pos($l: 0, $t: -3px);
+				content: '';
+				background: $pink;
+			}
+		}
+	}
+
+	&__link {
+		color: #fff;
+		text-decoration: none;
+		text-transform: uppercase;
+		font-size: 18px;
+		&::before {
+			counter-increment: link;
+			content: "0" counter(link) " ";
+			font-size: 24px;
+			font-weight: 700;
+		}
+	}
+}
+
+.logo {
+	color: #fff;
+	font: 700 30px $font-title;
+	text-decoration: none;
+	transition: all .3s;
+
+	&:hover {
+		color: $yellow;
+	}
+}
+
+.menu {
+	display: flex;
+
+	&__item {
+		margin-left: 50px;
+	}
+
+	&__link {
+		color: #fff;
+		text-decoration: none;
+		font: 14px $font-title;
+		text-transform: uppercase;
+		border-bottom: 3px solid transparent;
+		transition: all .3s;
+		padding-bottom: 10px;
+
+		&:hover {
+			color: $yellow;
+			border-color: $yellow;
+		}
+	}
+}
